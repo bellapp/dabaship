@@ -1,0 +1,59 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if phone is verified
+    function isPhoneVerified() {
+      return isAuthenticated() && 
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isPhoneVerified == true;
+    }
+    
+    // Users collection
+    match /users/{userId} {
+      allow read: if isAuthenticated() && request.auth.uid == userId;
+      allow create: if isAuthenticated() && request.auth.uid == userId;
+      allow update: if isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    // Categories - public read
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if false; // Only admins via backend
+    }
+    
+    // Products - public read
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if false; // Only admins via backend
+    }
+    
+    // Orders - only verified users can create
+    match /orders/{orderId} {
+      allow read: if isAuthenticated() && 
+                     (resource.data.userId == request.auth.uid || 
+                      resource.data.riderId == request.auth.uid);
+      allow create: if isPhoneVerified() && 
+                       request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && 
+                       (resource.data.userId == request.auth.uid || 
+                        resource.data.riderId == request.auth.uid);
+    }
+    
+    // OTP codes - only Cloud Functions can write
+    match /otp_codes/{phone} {
+      allow read, write: if false; // Only Cloud Functions
+    }
+    
+    // Riders - for rider app
+    match /riders/{riderId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && request.auth.uid == riderId;
+    }
+  }
+}

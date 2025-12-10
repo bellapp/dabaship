@@ -1,0 +1,18 @@
+{
+  "@@locale": "en",
+  "appTitle": "Daba Delivery",
+  "welcomeMessage": "Welcome to Daba Delivery",
+  "login": "Login",
+  "phone": "Phone",
+  "password": "Password",
+  "verify": "Verify",
+  "resendOtp": "Resend Code",
+  "menu": "Menu",
+  "cart": "Cart",
+  "total": "Total",
+  "checkout": "Checkout",
+  "category_soif": "Thirsty",
+  "category_faim": "Hungry",
+  "category_snack": "Snack",
+  "category_plage": "Beach"
+}

@@ -1,0 +1,18 @@
+{
+  "@@locale": "ar",
+  "appTitle": "دابا ديليفري",
+  "welcomeMessage": "مرحباً بك في دابا ديليفري",
+  "login": "تسجيل الدخول",
+  "phone": "رقم الهاتف",
+  "password": "كلمة المرور",
+  "verify": "تحقق",
+  "resendOtp": "إعادة إرسال الرمز",
+  "menu": "القائمة",
+  "cart": "السلة",
+  "total": "المجموع",
+  "checkout": "الدفع",
+  "category_soif": "عطشان",
+  "category_faim": "جيعان",
+  "category_snack": "سناك",
+  "category_plage": "بحر"
+}

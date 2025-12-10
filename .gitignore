@@ -1,0 +1,55 @@
+# Sensitive Files - NEVER COMMIT THESE
+**/serviceAccountKey.json
+**/google-services.json
+**/GoogleService-Info.plist
+**/*-key.json
+.env
+.env.local
+
+# Build artifacts and logs
+**/build/
+*.log
+*_log.txt
+*_log_*.txt
+**/.dart_tool/
+**/node_modules/
+
+# Flutter/Dart specific
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+.packages
+.metadata
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# Temporary files
+*.swp
+*.swo
+*~
+.tmp/
+
+# Data files (Excel, temp files)
+data/~$*.xlsx
+data/*.tmp
+
+# Firebase cache
+.firebase/
+
+# OS specific
+Thumbs.db
+.DS_Store
+
+# Compiled JavaScript from TypeScript
+functions/lib/
+
+# Dependencies
+package-lock.json
+pubspec.lock

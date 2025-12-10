@@ -1,0 +1,13 @@
+{
+    "name": "daba-delivery-scripts",
+    "version": "1.0.0",
+    "description": "Scripts for Daba Delivery",
+    "main": "populate_catalog.js",
+    "scripts": {
+        "start": "node populate_catalog.js"
+    },
+    "dependencies": {
+        "firebase-admin": "^13.6.0",
+        "puppeteer": "^21.0.0"
+    }
+}
