@@ -123,15 +123,36 @@ flutter run
 ```
 
 ### Android Emulator
+
+#### List Available Emulators:
 ```bash
-# Start Android emulator first
-emulator -avd <emulator-name>
+flutter emulators
+```
 
-# Or use Android Studio to start emulator
+#### Launch Specific Emulators:
+```bash
+# Launch first emulator
+flutter emulators --launch Medium_Phone_API_35
 
-# Then run the app
-cd client_app  # or rider_app
+# Launch second emulator
+flutter emulators --launch RiderDevice
+```
+
+#### Run Apps on Emulators:
+Once emulators are running:
+
+**Terminal 1 (Client App):**
+```bash
+cd client_app
 flutter run
+# Select the first emulator when prompted
+```
+
+**Terminal 2 (Rider App):**
+```bash
+cd rider_app
+flutter run
+# Select the second emulator when prompted
 ```
 
 ### Web (if enabled)
